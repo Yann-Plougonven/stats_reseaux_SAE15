@@ -9,7 +9,7 @@ time_in_each_network_by_hour = [{'time_in_dot0': 32, 'time_in_dot1': 17, 'time_i
 # Ce programme a besoin des données traitées par les programmes calcul_statistiques.py et recuperation_donnees.py pour fonctionner.
 # Écrit par Yann Plougonven--Lastennet et Gurvan Mury,
 # élèves en BUT réseaux et télécommunications à l'IUT de Lannion.
-# Dernière édition de ce fichier le 31/12/2023.
+# Dernière édition de ce fichier le 05/01/2024 par Yann.
 
 ### Importation des modules ###
 import numpy as np
@@ -49,7 +49,7 @@ def show_route_par_defaut_in_bars(unit : str, hours : list[str], time_in_dot0 : 
     plt.show()
 
 
-def route_par_defaut_bars(time_in_each_network_by_hour : list[dict]) -> None:
+def route_par_defaut_bars(time_in_each_network_by_hour : list[dict[str:int, str:int, str:int, str:int, str:str]]) -> None:
     """Prépare les données pour qu'elles soient utilisable par la fonction show_route_par_defaut_in_bars, puis appelle cette fonction show_route_par_defaut_in_bars.
     Les données permetteront la création d'un graphique en barres empilées tel que décrit dans le docstring de la fonction show_route_par_defaut_in_bars, 
     en utilisant comme unité les MINUTES.
@@ -57,7 +57,7 @@ def route_par_defaut_bars(time_in_each_network_by_hour : list[dict]) -> None:
     Ce n'est évidemment pas la manière la plus optimisée, mais c'était un bon exercice pour renforcer notre maitrise des dictionnaires Python tout en répondant à la consigne.
 
     Args:
-        time_in_each_network_by_hour (list[dict]): liste de dictionnaires représentant le temps (le nombre de minutes) que l'ordinateur a passé CHAQUE HEURE dans chaque réseau
+        time_in_each_network_by_hour (list[dict[str:int, str:int, str:int, str:int, str:str]]): liste de dictionnaires représentant le temps (le nombre de minutes) que l'ordinateur a passé CHAQUE HEURE dans chaque réseau
     """
     i : int
     hours : list[str] = []
@@ -76,7 +76,7 @@ def route_par_defaut_bars(time_in_each_network_by_hour : list[dict]) -> None:
     show_route_par_defaut_in_bars("minutes", hours, time_in_dot0, time_in_dot1, time_in_dot2, time_with_no_road)
 
 
-def route_par_defaut_bars_percentage(time_in_each_network_by_hour : list[dict]) -> None:
+def route_par_defaut_bars_percentage(time_in_each_network_by_hour : list[dict[str:int, str:int, str:int, str:int, str:str]]) -> None:
     """Prépare les données pour qu'elles soient utilisable par la fonction show_route_par_defaut_in_bars, puis appelle cette fonction show_route_par_defaut_in_bars.
     Les données permetteront la création d'un graphique en barres empilées tel que décrit dans le docstring de la fonction show_route_par_defaut_in_bars, 
     en utilisant comme unité le POURCENTAGE.
@@ -84,7 +84,7 @@ def route_par_defaut_bars_percentage(time_in_each_network_by_hour : list[dict]) 
     Ce n'est évidemment pas la manière la plus optimisée, mais c'était un bon exercice pour renforcer notre maitrise des dictionnaires Python tout en répondant à la consigne.
 
     Args:
-        time_in_each_network_by_hour (list[dict]): liste de dictionnaires représentant le temps (le nombre de minutes) que l'ordinateur a passé CHAQUE HEURE dans chaque réseau
+        time_in_each_network_by_hour (list[dict[str:int, str:int, str:int, str:int, str:str]]): liste de dictionnaires représentant le temps (le nombre de minutes) que l'ordinateur a passé CHAQUE HEURE dans chaque réseau
     """
     i : int
     hours : list[str] = []

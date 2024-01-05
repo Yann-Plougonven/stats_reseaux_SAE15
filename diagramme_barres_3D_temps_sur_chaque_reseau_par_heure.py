@@ -10,7 +10,7 @@ time_in_each_network_by_hour = [{'time_in_dot0': 32, 'time_in_dot1': 17, 'time_i
 # Ce programme a besoin des données traitées par les programmes calcul_statistiques.py et recuperation_donnees.py pour fonctionner.
 # Écrit par Yann Plougonven--Lastennet et Gurvan Mury,
 # élèves en BUT réseaux et télécommunications à l'IUT de Lannion.
-# Dernière édition de ce fichier le 31/12/2023 par Yann.
+# Dernière édition de ce fichier le 05/01/2024 par Yann.
 
 ### Importation des modules ###
 import matplotlib.pyplot as plt
@@ -19,12 +19,12 @@ from matplotlib import cm
 import numpy as np
 
 
-def route_par_defaut_live_3D_bars(time_in_each_network_by_hour : list[dict]) -> None:
+def route_par_defaut_live_3D_bars(time_in_each_network_by_hour : list[dict[str:int, str:int, str:int, str:int, str:str]]) -> None:
     """Crée et affiche un graphique 3D en barres représentant la durée de connexion de l'ordinateur à chaque réseau, selon leurs localisation, 
     pendant l'heure choisie par l'utilisateur avec un curseur.
 
     Args:
-        time_in_each_network_by_hour (list[dict]): liste de dictionnaires représentant le temps (le nombre de minutes) que l'ordinateur a passé CHAQUE HEURE dans chaque réseau.
+        time_in_each_network_by_hour (list[dict[str:int, str:int, str:int, str:int, str:str]]): liste de dictionnaires représentant le temps (le nombre de minutes) que l'ordinateur a passé CHAQUE HEURE dans chaque réseau.
     """
     # /!\ ATTENTION /!\ Pour pouvoir interagir avec le graphique en 3D, il est recommandé d'exécuter le code de cette cellule dans un fichier .py basique, et non dans un notebook.
     print("/!\ ATTENTION /!\ Pour interagir avec le graphique en 3D, il est recommandé d'exécuter le code de cette cellule dans un fichier .py basique, et non dans un notebook.")

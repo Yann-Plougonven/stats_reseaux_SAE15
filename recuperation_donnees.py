@@ -2,7 +2,7 @@
 # Ce programme permet de récupérer le contenu d'un fichier csv, puis de les traiter pour les rendre utilisables.
 # Écrit par Yann Plougonven--Lastennet et Gurvan Mury,
 # élèves en BUT réseaux et télécommunications à l'IUT de Lannion.
-# Dernière édition de ce fichier le 03/01/2024 par Yann.
+# Dernière édition de ce fichier le 05/01/2024 par Yann.
 
 ### Importation des modules ###
 import csv
@@ -32,7 +32,7 @@ def put_csv_in_list(chemin_fichier : str) -> list[list[str]]:
         Chaque ligne du csv est stockée dans une sous-liste différente.
     """
     ligne : str
-    liste : list[str] = []
+    liste : list[list[str]] = []
     with open(chemin_fichier, newline='') as csvfile :
         datareader = csv.reader(csvfile, delimiter= ',')
         for ligne in datareader:
@@ -51,8 +51,8 @@ def put_csv_in_dict(chemin_fichier : str) -> dict[str, list[str]]:
         Chaque ligne du csv est stockée dans une relation clé:valeur différente.
     """
     i : int
-    dico : dict[str] = {}
-    liste : list[str] = put_csv_in_list(chemin_fichier)
+    dico : dict[str, list[str]] = {}
+    liste : list[list[str]] = put_csv_in_list(chemin_fichier)
     for i in range(len(liste)):
         dico[liste[i][0]] = liste[i][1:]
     return dico
@@ -76,7 +76,7 @@ def epoch_to_date(epochtimes : list[int]) -> list[str]:
     return resultat
 
 
-def transposer(chemin_fichier : str) -> list:
+def transposer(chemin_fichier : str) -> list[list[int], list[int], list[int], list[int], list[int], list[str], list[str]]:
     """Transpose les données contenues dans un fichier au format csv, et les stocke dans une liste python contenant autant de sous-listes que le fichier csv a de valeur par ligne.
     Converti les données du format str au format int, si possible.
     Ajoute une sous-liste list[str], à la fin de la liste de retour, contenant les temps convertis du format epoch au format lisible par l'humain.
@@ -85,20 +85,21 @@ def transposer(chemin_fichier : str) -> list:
         chemin_fichier (str): chemin relatif vers le fichier csv à traiter.
 
     Returns:
-        list: contient autant de sous-listes que le fichier csv a de valeur par ligne, plus une liste (list[str]) contenant les temps de la première sous-liste (list[int]),
+        list[list[int], list[int], list[int], list[int], list[int], list[str], list[str]]: contient autant de sous-listes que le fichier csv a de valeur par ligne, plus une liste (list[str]) contenant les temps de la première sous-liste (list[int]),
         convertis du format epoch au format lisible par l'humain (str).
         Une sous-liste correspond à une métrique contenu dans le fichier csv.
     """
     i : int
     j : int
-    liste : list[str] = put_csv_in_list(chemin_fichier)
+    csv_in_list : list[str] = put_csv_in_list(chemin_fichier)
     une_valeur : str
-    resultat : list[list[str]] = [[] for i in range(len(liste[0]) + 1)]
-    #resultat : list[list[str]] = [[]]*len(liste[0]) # Avec cette méthode, les x listes seraient liées entre elles, ce qui pose des problèmes.
+    resultat : list[list[int], list[int], list[int], list[int], list[int], list[str], list[str]] 
+    resultat = [[] for i in range(len(csv_in_list[0]) + 1)]
+    #resultat : list[list[str]] = [[]]*len(csv_in_list[0]) # Avec cette méthode, les x listes seraient liées entre elles, ce qui pose des problèmes.
 
-    for i in range(len(liste[0])):
-        for j in range(len(liste)):
-            une_valeur = liste[j][i]
+    for i in range(len(csv_in_list[0])):
+        for j in range(len(csv_in_list)):
+            une_valeur = csv_in_list[j][i]
 
             if une_valeur.isdigit(): # Si la valeur peut être représentée par un entier, la stocker sous forme d'entier
                 resultat[i].append(int(une_valeur))
@@ -118,7 +119,7 @@ liste_donnees = put_csv_in_list(chemin_fichier)
 dictionnaire_donnees : dict[str, list[str]]
 dictionnaire_donnees = put_csv_in_dict(chemin_fichier)
 
-transposee : list
+transposee : list[list[int], list[int], list[int], list[int], list[int], list[str], list[str]]
 transposee = transposer(chemin_fichier)
 
 

@@ -8,7 +8,7 @@ transposee = [[1701363601, 1701363661, 1701363721, 1701363781, 1701363841, 17013
 # Ce programme permet de calculer des statistiques à partir des données rendues utilisables par le programme recuperation_donnees.py.
 # Écrit par Yann Plougonven--Lastennet et Gurvan Mury,
 # élèves en BUT réseaux et télécommunications à l'IUT de Lannion.
-# Dernière édition de ce fichier le 03/01/2024 par Yann.
+# Dernière édition de ce fichier le 05/01/2024 par Yann.
 
 ### Importation des modules ###
 import math
@@ -170,7 +170,7 @@ def get_time_in_each_network(donnees : list[str]) -> dict[str, int]:
     return resultat
 
 
-def get_time_in_each_network_by_hour(donnees : list[str], liste_heures : list[int]) -> list[dict]:
+def get_time_in_each_network_by_hour(donnees : list[str], liste_heures : list[int]) -> list[dict[str:int, str:int, str:int, str:int, str:str]]:
     """Calcule et retourne le temps (nombre de minutes) que l'ordinateur a passé CHAQUE HEURE dans chaque réseau, sachant que chaque ligne du fichier csv correspond à une minute de temps.
 
     Args:
@@ -178,14 +178,14 @@ def get_time_in_each_network_by_hour(donnees : list[str], liste_heures : list[in
         liste_heures (list[int]): liste contenant l'heure (toutes les 60 minutes) de capture de chaque route par défaut de la liste "donnees".
 
     Returns:
-        list[dict]: liste de dictionnaires indiquant le temps passé par l'ordinateur sur chaque route par défaut, donc sur chaque réseau.
+        list[dict[str:int, str:int, str:int, str:int, str:str]]: liste de dictionnaires indiquant le temps passé par l'ordinateur sur chaque route par défaut, donc sur chaque réseau.
         Un dictionnaire correspond à une heure (60 minutes)
     """
     start : int = 0
     end : int = 60
     i : int
-    dico : dict = {}
-    resultat : list[dict] = []
+    dico : list[dict[str:int, str:int, str:int, str:int, str:str]] = {}
+    resultat : list[list[dict[str:int, str:int, str:int, str:int, str:str]]] = []
 
     for i in range(len(liste_heures)//60 + 1):
         dico = get_time_in_each_network(donnees[start:end]) # ajout des durées de chaque route par défaut au dico
