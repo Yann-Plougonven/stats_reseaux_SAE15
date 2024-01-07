@@ -7,7 +7,7 @@ stats_interfaces = {'moyenne_nb_int': 5.050480769230769, 'max_nb_int': 6, 'min_n
 
 # courbes_evolution_nb_interfaces.py
 # Ce programme permet d'afficher des courbes permettant de visualiser l'évolution du nombre d'interfaces 
-# et de leurs états au court du temps, grâce au module Mathplotlib.
+# et de leurs états au court du temps, grâce au module Matplotlib.
 # Ce programme a besoin des données traitées par les programmes calcul_statistiques.py et recuperation_donnees.py pour fonctionner.
 # Écrit par Yann Plougonven--Lastennet et Gurvan Mury,
 # élèves en BUT réseaux et télécommunications à l'IUT de Lannion.

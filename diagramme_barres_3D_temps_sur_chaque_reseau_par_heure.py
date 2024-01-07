@@ -6,7 +6,7 @@ time_in_each_network_by_hour = [{'time_in_dot0': 32, 'time_in_dot1': 17, 'time_i
 
 # diagramme_barres_3D_temps_sur_chaque_reseau_par_heure.py
 # Ce programme permet d'afficher en 3D des barres permettant de visualiser la proportion de temps d'utilisation de chaque réseau par heure, et
-# selon leurs localisations, grâce au module Mathplotlib.
+# selon leurs localisations, grâce au module Matplotlib.
 # Ce programme a besoin des données traitées par les programmes calcul_statistiques.py et recuperation_donnees.py pour fonctionner.
 # Écrit par Yann Plougonven--Lastennet et Gurvan Mury,
 # élèves en BUT réseaux et télécommunications à l'IUT de Lannion.
@@ -79,7 +79,7 @@ def route_par_defaut_live_3D_bars(time_in_each_network_by_hour : list[dict[str:i
         """Méthode appellée pour mettre à jour les barres affichées sur le graphique, lorsque le curseur est bougé par l'utilsateur.
 
         Args:
-            val : valeur quelquonque exigée par mathplotlib, ne devant pas figurer dans l'appel de la méthode.
+            val : valeur quelquonque exigée par matplotlib, ne devant pas figurer dans l'appel de la méthode.
         """
         numero_heure = int(slider_time.val)
         slider_time.valtext.set_text(hours[numero_heure]) # changer la valeur de l'heure à côté du curseur

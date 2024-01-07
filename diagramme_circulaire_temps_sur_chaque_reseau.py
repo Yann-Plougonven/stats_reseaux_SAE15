@@ -5,7 +5,7 @@ time_in_each_network = {'time_in_dot0': 368, 'time_in_dot1': 186, 'time_in_dot2'
 
 
 # diagramme_circulaire_temps_sur_chaque_reseau.py
-# Ce programme permet d'afficher un diagramme circulaire permettant de visualiser la proportion de temps d'utilisation de chaque réseau, grâce au module Mathplotlib.
+# Ce programme permet d'afficher un diagramme circulaire permettant de visualiser la proportion de temps d'utilisation de chaque réseau, grâce au module Matplotlib.
 # Ce programme a besoin des données traitées par les programmes calcul_statistiques.py et recuperation_donnees.py pour fonctionner.
 # Écrit par Yann Plougonven--Lastennet et Gurvan Mury,
 # élèves en BUT réseaux et télécommunications à l'IUT de Lannion.

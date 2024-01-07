@@ -5,7 +5,7 @@ time_in_each_network_by_hour = [{'time_in_dot0': 32, 'time_in_dot1': 17, 'time_i
 
 
 # diagramme_barres_empilees_temps_sur_chaque_reseau_par_heure.py
-# Ce programme permet d'afficher des barres empilées permettant de visualiser la proportion de temps d'utilisation de chaque réseau par heure, grâce au module Mathplotlib.
+# Ce programme permet d'afficher des barres empilées permettant de visualiser la proportion de temps d'utilisation de chaque réseau par heure, grâce au module Matplotlib.
 # Ce programme a besoin des données traitées par les programmes calcul_statistiques.py et recuperation_donnees.py pour fonctionner.
 # Écrit par Yann Plougonven--Lastennet et Gurvan Mury,
 # élèves en BUT réseaux et télécommunications à l'IUT de Lannion.
